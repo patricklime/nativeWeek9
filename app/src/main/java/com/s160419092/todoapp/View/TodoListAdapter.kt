@@ -3,6 +3,7 @@ package com.s160419092.todoapp.View
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.s160419092.todoapp.Model.Todo
@@ -32,9 +33,9 @@ class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick: (Todo)->
         holder.view.checkBox.setOnCheckedChangeListener{
             compoundButton, isChecked->
                 if (isChecked == true){
+
                     adapterOnClick(todoList[position])
-                    todoList[position].is_done = 1
-                }
+              }
         }
 
         holder.view.imgEdit.setOnClickListener{

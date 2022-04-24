@@ -37,6 +37,17 @@ class ListTodoViewModel(application: Application):AndroidViewModel(application),
         }
     }
 
+    fun showNewData(todo: Todo) {
+        loadingLD.value = true
+        todoLoadErrorLD.value = false
+        launch {
+            val db = buildDb(getApplication())
+
+            db.todoDao().updateIsDone(1,todo.uuid)
+            todoLD.value = db.todoDao().selectAllTodo()
+        }
+    }
+
     fun clearTask(todo:Todo){
         launch {
 //            val db = Room.databaseBuilder(getApplication(),

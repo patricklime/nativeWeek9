@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_todo_list.*
 class TodoListFragment : Fragment() {
 
     private lateinit var viewModel:ListTodoViewModel
-    private val todoListAdapter = TodoListAdapter(arrayListOf(), { item -> viewModel.clearTask(item)})
+    private val todoListAdapter = TodoListAdapter(arrayListOf(), {item -> viewModel.showNewData(item)})
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
